@@ -1,0 +1,10 @@
+{% for pizza in pizzas %}
+    <p>Preparation de {{ pizza.nom }}<br/>
+        Etalage de la pâte...<br/>
+        Ajout de la sauce...<br/>
+        Ajout des garnitures: {{ pizza.garnitures|join(' - ') }}<br/>
+        {{ pizza.cuire | raw }}
+        {{ pizza.couper | raw }}
+        {{ pizza.emballer | raw }}
+    </p>
+{% endfor %}

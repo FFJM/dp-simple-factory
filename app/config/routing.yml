@@ -1,0 +1,4 @@
+dp_simple_factory:
+    resource: "@DPSimpleFactoryBundle/Controller/"
+    type:     annotation
+    prefix:   /
