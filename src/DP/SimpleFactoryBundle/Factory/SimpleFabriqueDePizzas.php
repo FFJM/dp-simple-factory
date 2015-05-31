@@ -9,19 +9,31 @@ use DP\SimpleFactoryBundle\Entity\PizzaVegetarienne;
 
 class SimpleFabriqueDePizzas
 {
-
-    public function creerPizza($type)
-    {
-        $pizza = null;
-
-        if ("fromage" == $type) {
-            $pizza = new PizzaFromage();
-        } elseif ("poivrons" == $type) {
-            $pizza = new PizzaPoivrons();
-        } elseif ("fruitsDeMer" == $type) {
-            $pizza = new PizzaFruitsDeMer();
-        } else if ("vegetarienne" == $type) {
-            $pizza = new PizzaVegetarienne();
+    /**
+     * Fabrique de pizza
+     * @param type $type
+     * @param array $options
+     * @return Pizza
+     * @todo Mettre de la généricité $Pizzaclass = new Pizzaxxxx
+     */
+    public static function creerPizza($type,$options = array())
+    {       
+        switch ($type) {
+            case 'fromage':
+                $pizza = new PizzaFromage($options);
+                break;
+            case 'poivrons':
+                $pizza = new PizzaPoivrons($options);
+                break;
+            case 'fruitsDeMer':
+                $pizza = new PizzaFruitsDeMer($options);
+                break;
+            case 'vegetarienne':
+                $pizza = new PizzaVegetarienne($options);
+                break;              
+            default:
+                $pizza = null;
+                break;
         }
         return $pizza;
     }
