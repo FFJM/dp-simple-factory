@@ -18,8 +18,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $pizzas = array();
-        $simpleFabriqueDePizzas = new SimpleFabriqueDePizzas();
-        $pizzeria = new Pizzeria($simpleFabriqueDePizzas);
+        $pizzeria = new Pizzeria();
         $typesPizza = array('fromage', 'poivrons', 'fruitsDeMer', 'vegetarienne');
 
         foreach ($typesPizza as $type) {
