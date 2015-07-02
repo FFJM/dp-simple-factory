@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pizza_fruits_mer")
  * @ORM\Entity()
  */
-class PizzaFruitsDeMer extends Pizza
+class Pizzafruitsdemer extends Pizza
 {
     /**
      * @var integer
