@@ -13,7 +13,6 @@ class SimpleFabriqueDePizzas
      * @param string $type
      * @param array $options
      * @return Pizza
-     * @todo Mettre de la généricité $Pizzaclass = new Pizzaxxxx
      */
     public static function creerPizza($type,$options = array())
     {    
