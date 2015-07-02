@@ -18,13 +18,23 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $pizzas = array();
+        $errors = array();
         $pizzeria = new Pizzeria();
         $typesPizza = array('fromage', 'poivrons', 'fruitsDeMer', 'vegetarienne');
 
         foreach ($typesPizza as $type) {
-            $pizzas[] = $pizzeria->commanderPizza($type);
+            try {
+                $pizzas[] = $pizzeria->commanderPizza($type);               
+            } catch (\Exception $exc) {
+                $errors[] = $exc->getMessage();
+            }
         }
-        return array('pizzas' => $pizzas);
+        
+        return $this->render(
+                        'DPSimpleFactoryBundle:Default:index.html.twig',
+                         array('pizzas' => $pizzas,
+                               'errors' => $errors,)
+                        );
     }
 
 }

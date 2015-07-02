@@ -8,3 +8,6 @@
         {{ pizza.emballer | raw }}
     </p>
 {% endfor %}
+{% for error in errors %}
+    <p style="color: red"> {{ error }}</p>
+{% endfor %}
